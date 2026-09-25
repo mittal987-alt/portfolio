@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 270 100% 60%;
+    --radius: 0.75rem;
+    --cyan: 186 100% 50%;
+    --purple: 270 100% 60%;
+    --pink: 316 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--cyan) / 0.3) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: hsl(var(--cyan) / 0.3);
+    border-radius: 9999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--cyan) / 0.6);
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: hsl(var(--cyan) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ===================== NEON GLOW UTILITIES ===================== */
+
+.neon-cyan {
+  color: #00f3ff;
+  text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.neon-purple {
+  color: #a855f7;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.neon-border-cyan {
+  border: 1px solid hsl(var(--cyan) / 0.4);
+  box-shadow:
+    0 0 10px hsl(var(--cyan) / 0.1),
+    inset 0 0 10px hsl(var(--cyan) / 0.05);
+}
+
+.neon-border-cyan:hover {
+  border-color: hsl(var(--cyan) / 0.8);
+  box-shadow:
+    0 0 20px hsl(var(--cyan) / 0.3),
+    inset 0 0 20px hsl(var(--cyan) / 0.1);
+}
+
+.neon-border-purple {
+  border: 1px solid hsl(var(--purple) / 0.4);
+  box-shadow:
+    0 0 10px hsl(var(--purple) / 0.1),
+    inset 0 0 10px hsl(var(--purple) / 0.05);
+}
+
+.neon-border-purple:hover {
+  border-color: hsl(var(--purple) / 0.8);
+  box-shadow:
+    0 0 20px hsl(var(--purple) / 0.3),
+    inset 0 0 20px hsl(var(--purple) / 0.1);
+}
+
+/* ===================== GLASS MORPHISM ===================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.05);
+}
+
+/* ===================== GRADIENT TEXT ===================== */
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #00ffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-fire {
+  background: linear-gradient(135deg, #f97316, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================== GRID PATTERN ===================== */
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ===================== SHIMMER ANIMATION ===================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ===================== PULSE GLOW ===================== */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ===================== FLOATING ANIMATION ===================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===================== SCAN LINE ===================== */
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ===================== METEOR ANIMATION ===================== */
+
+@keyframes meteor {
+  0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+}
+
+.meteor {
+  animation: meteor linear infinite;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.8), transparent);
+}
+
+/* ===================== SPOTLIGHT EFFECT ===================== */
+
+.spotlight-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-effect::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease;
+  border-radius: 50%;
+}
+
+/* ===================== TYPING CURSOR ===================== */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ===================== SCROLL INDICATOR ===================== */
+
+@keyframes scroll-down {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}
+
+.scroll-indicator {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+/* ===================== SECTION DIVIDER ===================== */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), rgba(168, 85, 247, 0.3), transparent);
+}
+
+/* ===================== BUTTON STYLES ===================== */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(168, 85, 247, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: hsl(var(--cyan));
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(168, 85, 247, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  color: hsl(var(--purple));
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  transform: translateY(-1px);
+  border-color: rgba(168, 85, 247, 0.8);
+}
+
+/* ===================== TAG STYLES ===================== */
+
+.tech-tag {
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  color: hsl(var(--cyan));
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(0, 255, 255, 0.15);
+  border-color: rgba(0, 255, 255, 0.5);
+}
+
+/* ===================== NOISE TEXTURE ===================== */
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
