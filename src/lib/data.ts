@@ -10,7 +10,7 @@ export const personalInfo = {
   email: "mittalaayush570@gmail.com",
   github: "https://github.com/mittal987-alt",
   linkedin: "https://www.linkedin.com/in/aayush-mittal-836326327/",
-  resumeUrl: "https://drive.google.com/file/d/17NszwwUltgFWY3zePZbvLCYGaDlHEJCE/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1G76YHelZUC7N8lhVc4GbqOFJr1h-QAdz/view?usp=sharing",
   location: "India 🇮🇳",
   availableForWork: true,
 };
@@ -27,7 +27,7 @@ export const skills = [
     category: "Frontend",
     icon: "🎨",
     color: "from-cyan-500 to-blue-500",
-    items: ["React", "Next.js", "TypeScript","magic UI", "Tailwind CSS", "Three.js", "Framer Motion"],
+    items: ["React", "Next.js", "TypeScript", "magic UI", "Tailwind CSS", "Three.js", "Framer Motion"],
   },
   {
     category: "Backend",
